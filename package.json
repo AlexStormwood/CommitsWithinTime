@@ -6,7 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["javascript", "git", "nodejs", "github actions", "commit"],
+  "keywords": [
+    "javascript",
+    "git",
+    "nodejs",
+    "github actions",
+    "commit"
+  ],
   "author": "AlexHolderDeveloper",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
 }
