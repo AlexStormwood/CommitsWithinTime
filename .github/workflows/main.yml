@@ -16,6 +16,4 @@ jobs:
           hours: 2
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.has-new-commits-within-time }}"
-        run: echo "The time was ${{ steps.hello.outputs.total-commits }}"
         run: echo "The time was ${{ steps.hello.outputs.number-of-commits-within-time }}"
