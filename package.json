@@ -4,7 +4,7 @@
   "description": "A helper action that returns true if commits are detected on a repository within a supplied timeframe.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Hi! No tests in CommitsWithTime yet, sorry!\""
+    "test": "echo \"Hi! No tests in CommitsWithinTime yet, sorry!\""
   },
   "keywords": [
     "javascript",
