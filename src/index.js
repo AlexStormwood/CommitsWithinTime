@@ -3,7 +3,7 @@ const github = require('@actions/github');
 
 var { execSync } = require("child_process");
 
-const gitCommand = "git rev-list --remotes --all --pretty"
+const gitCommand = "git rev-list --remotes --pretty"
 
 var hasNewCommitsWithinTime = false;
 var numberOfCommitsWithinTime = 0;
