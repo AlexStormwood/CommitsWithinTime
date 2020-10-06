@@ -1,21 +1,24 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  example_check_commits_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Check for commits within the last 2 hours
     steps:
       # To use this repository's private action,
       # you must check out the repository
-      - name: Checkout
+      - name: Checkout with maximum fetch depth
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Hello world action step
+      - name: Run CommitsWithinTime script
         uses: ./ # Uses an action in the root directory
-        id: hello
+        id: commitswithintime
         with:
           hours: 2
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.number-of-commits-within-time }}"
+      - name: Get the output from CommitsWithinTime
+        run: |
+          echo "The 'has-new-commits-within-time' value is ${{ steps.commitswithintime.outputs.has-new-commits-within-time }}"
+          echo "The 'number-of-commits-within-time' value is ${{ steps.commitswithintime.outputs.number-of-commits-within-time }}"
+          echo "The 'total-commits' value is ${{ steps.commitswithintime.outputs.total-commits }}"
