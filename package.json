@@ -1,6 +1,6 @@
 {
   "name": "commitswithintime",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A helper action that returns true if commits are detected on a repository within a supplied timeframe.",
   "main": "src/index.js",
   "scripts": {
