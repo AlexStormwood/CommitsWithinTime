@@ -74,6 +74,15 @@ function gatherInfoOnCommitsWithinTime() {
         if (element.date > minDate && element.date <= maxDate) {
             hasNewCommitsWithinTime = true;
             numberOfCommitsWithinTime++;
+            console.log("------------");
+            console.log("This commit WAS within the timespan you wanted:");
+            console.log(JSON.stringify(element));
+            console.log("------------");
+        } else {
+            console.log("------------");
+            console.log("This commit was NOT within the timespan you wanted:");
+            console.log(JSON.stringify(element));
+            console.log("------------");
         }
     });
 
