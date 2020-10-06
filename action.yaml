@@ -1,36 +1,36 @@
-name: 'Commits Within Time'
-description: 'A helper action that returns true if commits are detected on a repository within a supplied timeframe.'
+name: "Commits Within Time" 
+description: "A helper action that returns true if commits are detected on a repository within a supplied timeframe." 
 branding:
   icon: git-commit
   color: blue
 inputs:
   minutes: 
-    description: 'How many minutes back you'd like to check from the workflow's current time.'
+    description: "How many minutes back you" d like to check from the workflow's current time." 
     required: false
     default: 0
   hours: 
-    description: 'How many hours back you'd like to check from the workflow's current time.'
+    description: "How many hours back you" d like to check from the workflow's current time." 
     required: true
     default: 24
   days: 
-    description: 'How many days back you'd like to check from the workflow's current time.'
+    description: "How many days back you" d like to check from the workflow's current time." 
     required: false
     default: 0
   months: 
-    description: 'How many months back you'd like to check from the workflow's current time.'
+    description: "How many months back you" d like to check from the workflow's current time." 
     required: false
     default: 0
   years: 
-    description: 'How many years back you'd like to check from the workflow's current time.'
+    description: "How many years back you" d like to check from the workflow's current time." 
     required: false
     default: 0
 outputs:
   has-new-commits-within-time:
-    description: 'True or false, depending on if commits have been detected with a timestamp within the specified timeframe.'
+    description: "True or false, depending on if commits have been detected with a timestamp within the specified timeframe." 
   number-of-commits-within-time:
-    description: 'Whole number of commits detected that are within the specified timeframe.'
+    description: "Whole number of commits detected that are within the specified timeframe." 
   total-commits:
-    description: 'Whole number of commits detected on the repository/branch overall, even the ones not within the specified timeframe.'
+    description: "Whole number of commits detected on the repository/branch overall, even the ones not within the specified timeframe." 
 runs:
-  using: 'node12'
-  main: 'src/index.js'
+  using: "node12" 
+  main: "src/index.js" 
