@@ -5,23 +5,23 @@ branding:
   color: blue
 inputs:
   minutes: 
-    description: "How many minutes back you" d like to check from the workflow's current time." 
+    description: "How many minutes back you'd like to check from the workflow's current time." 
     required: false
     default: 0
   hours: 
-    description: "How many hours back you" d like to check from the workflow's current time." 
+    description: "How many hours back you'd like to check from the workflow's current time." 
     required: true
     default: 24
   days: 
-    description: "How many days back you" d like to check from the workflow's current time." 
+    description: "How many days back you'd like to check from the workflow's current time." 
     required: false
     default: 0
   months: 
-    description: "How many months back you" d like to check from the workflow's current time." 
+    description: "How many months back you'd like to check from the workflow's current time." 
     required: false
     default: 0
   years: 
-    description: "How many years back you" d like to check from the workflow's current time." 
+    description: "How many years back you'd like to check from the workflow's current time." 
     required: false
     default: 0
 outputs:
