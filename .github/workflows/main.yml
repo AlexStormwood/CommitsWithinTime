@@ -15,7 +15,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: commitswithintime
         with:
-          hours: 2
+          hours: 1
       # Use the output from the `hello` step
       - name: Get the output from CommitsWithinTime
         run: |
