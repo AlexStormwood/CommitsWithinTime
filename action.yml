@@ -10,7 +10,7 @@ inputs:
     default: 0
   hours: 
     description: 'How many hours back you'd like to check from the workflow's current time.'
-    required: false
+    required: true
     default: 24
   days: 
     description: 'How many days back you'd like to check from the workflow's current time.'
