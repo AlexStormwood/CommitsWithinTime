@@ -53,14 +53,14 @@ This is the data that you must set up in your own workflow file to use this acti
 
 ### usernamesToFocus
 
-- Default value: `'{"allowedUsernamesList": ["ExampleAllowedUsername1","ExampleAllowedUsername2"]}'`
+- Default value: `'{"allowedUsernamesList": []}'`
 - Required: No
 - Purpose: Commits authored or committed by usernames included in this array will not count towards 'commits within time'.
 - Note: This MUST follow JSON syntax. Github Actions does not currently support proper arrays in their metadata or inputs/outputs. This JSON structure is a dirty hack to make developer-friendly parameters work nicely!
 
 ### emailAddressesToFocus
 
-- Default value: `'{"allowedEmailAddressesList": ["exampleAllowedEmail@test.com","exampleAllowedEmail@email.com"]}'`
+- Default value: `'{"allowedEmailAddressesList": []}'`
 - Required: No
 - Purpose: Commits authored or committed by email addresses included in this array will not count towards 'commits within time'.
 - Note: This MUST follow JSON syntax. Github Actions does not currently support proper arrays in their metadata or inputs/outputs. This JSON structure is a dirty hack to make developer-friendly parameters work nicely!
