@@ -24,6 +24,30 @@ inputs:
     description: "How many years back you'd like to check from the workflow's current time." 
     required: false
     default: 0
+  usernamesToIgnore:
+    description: "Commits authored or committed by usernames listed here will be ignored in the check."
+    required: false
+    default: []
+  emailAddressesToIgnore:
+    description: "Commits authored or committed by email addresses listed here will be ignored in the check."
+    required: false
+    default: []
+  usernamesToFocus:
+    description: "Commits authored or committed by usernames listed here will be the ONLY commits considered in the check."
+    required: false
+    default: []
+  emailAddressesToFocus:
+    description: "Commits authored or committed by email addresses listed here will be the ONLY commits considered in the check."
+    required: false
+    default: []
+  includeGithubActor:
+    description: "If set to true, commits by the user who triggered this workflow will be included in the check. Default is true."
+    required: false
+    default: true
+  includeActionsUser:
+    description: "If set to true, commits by the 'actions-user' Github Actions account will be included in the check. Default is false."
+    required: false
+    default: false
 outputs:
   has-new-commits-within-time:
     description: "True or false, depending on if commits have been detected with a timestamp within the specified timeframe." 

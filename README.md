@@ -37,6 +37,46 @@ This is the data that you must set up in your own workflow file to use this acti
 - Required: No
 - Purpose: Set how many years ago you'd like to check for valid commits.
 
+### usernamesToIgnore
+
+- Default value: []
+- Required: No
+- Purpose: Commits authored or committed by usernames included in this array will not count towards 'commits within time'.
+
+### emailAddressesToIgnore
+
+- Default value: []
+- Required: No
+- Purpose: Commits authored or committed by emails included in this array will not count towards 'commits within time'.
+
+### usernamesToFocus
+
+- Default value: []
+- Required: No
+- Purpose: Commits authored or committed by usernames included in this array will not count towards 'commits within time'.
+
+### emailAddressesToFocus
+
+- Default value: []
+- Required: No
+- Purpose: Commits authored or committed by email addresses included in this array will not count towards 'commits within time'.
+
+### includeGithubActor
+
+- Default value: true
+- Required: No
+- Purpose: If true, commits authored or committed by the Github user who triggered the current workflow will count towards 'commits within time'. Set to false to ignore their commits instead.
+
+### includeActionsUser
+
+- Default value: false
+- Required: No
+- Purpose: If true, commits authored or committed by the default Github Actions robot user (eg. "actions-user" or "Github Actions") will count towards 'commits within time'. Set to false to ignore their commits instead. Keep false if you're using this Action to increment & build based on recent commits, as most build/push Actions will appear in commit histories as the Github Actions bot.
+
+
+
+
+
 
 
 ## Outputs
