@@ -123,6 +123,7 @@ jobs:
     
     - name: Check for commits within time 
       uses: AlexHolderDeveloper/CommitsWithinTime@v1.0.0
+      id: commitswithintime
       with:
         hours: 24
 
