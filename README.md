@@ -39,27 +39,31 @@ This is the data that you must set up in your own workflow file to use this acti
 
 ### usernamesToIgnore
 
-- Default value: []
+- Default value: `'{"ignoredUsernamesList": ["ExampleBlockedUsername1","ExampleBlockedUsername2"]}'`
 - Required: No
 - Purpose: Commits authored or committed by usernames included in this array will not count towards 'commits within time'.
+- Note: This MUST follow JSON syntax. Github Actions does not currently support proper arrays in their metadata or inputs/outputs. This JSON structure is a dirty hack to make developer-friendly parameters work nicely!
 
 ### emailAddressesToIgnore
 
-- Default value: []
+- Default value: `'{"ignoredEmailAddressesList": ["exampleIgnoredEmail@test.com","exampleIgnoredEmail@email.com"]}'`
 - Required: No
 - Purpose: Commits authored or committed by emails included in this array will not count towards 'commits within time'.
+- Note: This MUST follow JSON syntax. Github Actions does not currently support proper arrays in their metadata or inputs/outputs. This JSON structure is a dirty hack to make developer-friendly parameters work nicely!
 
 ### usernamesToFocus
 
-- Default value: []
+- Default value: `'{"allowedUsernamesList": ["ExampleAllowedUsername1","ExampleAllowedUsername2"]}'`
 - Required: No
 - Purpose: Commits authored or committed by usernames included in this array will not count towards 'commits within time'.
+- Note: This MUST follow JSON syntax. Github Actions does not currently support proper arrays in their metadata or inputs/outputs. This JSON structure is a dirty hack to make developer-friendly parameters work nicely!
 
 ### emailAddressesToFocus
 
-- Default value: []
+- Default value: `'{"allowedEmailAddressesList": ["exampleAllowedEmail@test.com","exampleAllowedEmail@email.com"]}'`
 - Required: No
 - Purpose: Commits authored or committed by email addresses included in this array will not count towards 'commits within time'.
+- Note: This MUST follow JSON syntax. Github Actions does not currently support proper arrays in their metadata or inputs/outputs. This JSON structure is a dirty hack to make developer-friendly parameters work nicely!
 
 ### includeGithubActor
 

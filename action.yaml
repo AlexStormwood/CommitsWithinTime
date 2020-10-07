@@ -27,19 +27,19 @@ inputs:
   usernamesToIgnore:
     description: "Commits authored or committed by usernames listed here will be ignored in the check."
     required: false
-    default: []
+    default: '{"ignoredUsernamesList": ["ExampleBlockedUsername1","ExampleBlockedUsername2"]}'
   emailAddressesToIgnore:
     description: "Commits authored or committed by email addresses listed here will be ignored in the check."
     required: false
-    default: []
+    default: '{"ignoredEmailAddressesList": ["exampleIgnoredEmail@test.com","exampleIgnoredEmail@email.com"]}'
   usernamesToFocus:
     description: "Commits authored or committed by usernames listed here will be the ONLY commits considered in the check."
     required: false
-    default: []
+    default: '{"allowedUsernamesList": ["ExampleAllowedUsername1","ExampleAllowedUsername2"]}'
   emailAddressesToFocus:
     description: "Commits authored or committed by email addresses listed here will be the ONLY commits considered in the check."
     required: false
-    default: []
+    default: '{"allowedEmailAddressesList": ["exampleAllowedEmail@test.com","exampleAllowedEmail@email.com"]}'
   includeGithubActor:
     description: "If set to true, commits by the user who triggered this workflow will be included in the check. Default is true."
     required: false

@@ -14,12 +14,13 @@ var hoursRange = core.getInput("hours") || 24;
 var daysRange = core.getInput("days") || 0;
 var monthsRange = core.getInput("months") || 0;
 var yearsRange = core.getInput("years") || 0;
-var usernamesToIgnore = core.getInput("usernamesToIgnore") || [];
-var emailAddressesToIgnore = core.getInput("emailAddressesToIgnore") || [];
-var usernamesToFocus = core.getInput("usernamesToFocus") || [];
-var emailAddressesToFocus = core.getInput("emailAddressesToFocus") || [];
+var usernamesToIgnore = JSON.parse(core.getInput("usernamesToIgnore")).ignoredUsernamesList || [];
+var emailAddressesToIgnore = JSON.parse(core.getInput("emailAddressesToIgnore")).ignoredEmailAddressesList || [];
+var usernamesToFocus = JSON.parse(core.getInput("usernamesToFocus")).allowedUsernamesList || [];
+var emailAddressesToFocus = JSON.parse(core.getInput("emailAddressesToFocus")).allowedEmailAddressesList || [];
 var includeGithubActor = core.getInput("includeGithubActor") || true;
 var includeActionsUser = core.getInput("includeActionsUser") || false;
+
 
 // Make sure our Github Actor is not ignored if that option is set to true
 if (includeGithubActor){
@@ -28,7 +29,7 @@ if (includeGithubActor){
         if (usernamesToIgnore[index] === process.env.GITHUB_ACTOR){
             usernamesToIgnore.splice(index, 1);
         } else {
-            i++;
+            index++;
         }
     }
 }
