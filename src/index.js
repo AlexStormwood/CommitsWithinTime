@@ -38,6 +38,7 @@ if (!includeActionsUser) {
     usernamesToIgnore.push("actions-user");
     usernamesToIgnore.push("Github Actions");
     emailAddressesToIgnore.push("actions@github.com")
+    emailAddressesToIgnore.push(process.env.GITHUB_ACTOR + "@users.noreply.github.com");
 }
 
 
