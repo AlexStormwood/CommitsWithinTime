@@ -9,6 +9,7 @@ var hasNewCommitsWithinTime = false;
 var numberOfCommitsWithinTime = 0;
 var totalCommits = 0;
 
+var secondsRange = core.getInput("seconds") || 0;
 var minutesRange = core.getInput("minutes") || 0;
 var hoursRange = core.getInput("hours") || 24;
 var daysRange = core.getInput("days") || 0;
@@ -114,8 +115,9 @@ function gatherInfoOnCommitsWithinTime() {
     minDate.setDate(minDate.getDate() - daysRange);
     minDate.setHours(minDate.getHours() - hoursRange);
     minDate.setMinutes(minDate.getMinutes() - minutesRange);
+    minDate.setSeconds(minDate.getSeconds() - secondsRange);
 
-
+    console.log(`Only allowing commits from between now \n(timestamp of ${maxDate.toUTCString()}) \n& this timestamp: \n${minDate.toUTCString()}`);
 
     gitCommitObjs.forEach(element => {
         console.log(element.date);
