@@ -198,6 +198,9 @@ function gatherInfoOnCommitsWithinTime() {
         outputObj.numberOfCommitsWithinTime = numberOfCommitsWithinTime;
         outputObj.hasNewCommitsWithinTime = hasNewCommitsWithinTime;
         writeOutputsToFile();
+    } else {
+        console.log("The value of shouldWriteToFile is currently:");
+        console.log(shouldWriteToFile);
     }
 }
 
