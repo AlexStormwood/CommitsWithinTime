@@ -193,14 +193,15 @@ function gatherInfoOnCommitsWithinTime() {
     core.setOutput("has-new-commits-within-time", hasNewCommitsWithinTime);
     core.setOutput("number-of-commits-within-time", numberOfCommitsWithinTime)
 
-    if (shouldWriteToFile){
+    console.log("The value of shouldWriteToFile is currently:");
+    console.log(shouldWriteToFile);
+    if (shouldWriteToFile || shouldWriteToFile == "true"){
         outputObj.totalCommits = totalCommits;
         outputObj.numberOfCommitsWithinTime = numberOfCommitsWithinTime;
         outputObj.hasNewCommitsWithinTime = hasNewCommitsWithinTime;
         writeOutputsToFile();
     } else {
-        console.log("The value of shouldWriteToFile is currently:");
-        console.log(shouldWriteToFile);
+        console.log("Did NOT write to a file. :( ");
     }
 }
 
