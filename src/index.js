@@ -1,5 +1,10 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const artifact = require('@actions/artifact');
+const artifactClient = artifact.create()
+const artifactName = 'outputCommitsWithinTime';
+const fs = require('fs');
+const resolve = require('path').resolve;
 
 var { execSync } = require("child_process");
 
@@ -22,6 +27,12 @@ var emailAddressesToFocus = JSON.parse(core.getInput("emailAddressesToFocus")).a
 var includeGithubActor = core.getInput("includeGithubActor") || true;
 var includeActionsUser = core.getInput("includeActionsUser") || false;
 
+var shouldWriteToFile = core.getInput("exportToFile") || false;
+var outputObj = {
+    hasNewCommitsWithinTime: false,
+    numberOfCommitsWithinTime: 0,
+    totalCommits: 0
+}
 
 // Make sure our Github Actor is not ignored if that option is set to true
 if (includeGithubActor){
@@ -182,6 +193,42 @@ function gatherInfoOnCommitsWithinTime() {
     core.setOutput("has-new-commits-within-time", hasNewCommitsWithinTime);
     core.setOutput("number-of-commits-within-time", numberOfCommitsWithinTime)
 
+    if (exportToFile){
+        outputObj.totalCommits = totalCommits;
+        outputObj.numberOfCommitsWithinTime = numberOfCommitsWithinTime;
+        outputObj.hasNewCommitsWithinTime = hasNewCommitsWithinTime;
+        writeOutputsToFile();
+    }
+}
+
+
+async function writeOutputsToFile(){
+    // write outputObj to JSON file as JSON
+
+    // write to root of repository
+    fs.writeFileSync('../outputFromCommitsWithinTime.json', JSON.stringify(outputObj));
+
+    // upload to artifact
+    const files = ['outputFromCommitsWithinTime.json'];
+    const rootDirectory = '.'
+    const options = {
+        continueOnError: true
+    }
+    
+    const uploadResponse = await artifactClient.uploadArtifact(artifactName, files, rootDirectory, options)
+    if (uploadResponse.failedItems.length > 0){
+        console.log("Hey! Looks like something failed when uploading results to the Actions artifact. \n Failed items are:\n " + uploadResponse.failedItems);
+    }
+
+    // delete file that was made in root of repository to prevent any git changes being saved 
+    fs.unlink("../outputFromCommitsWithinTime.json", (err) => {
+        if (err) {
+          console.error(err)
+          return
+        }
+      
+        //file removed
+    })
 }
 
 gatherInfoOnCommitsWithinTime();
