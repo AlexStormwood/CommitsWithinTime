@@ -130,7 +130,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run CommitsWithinTime script
-        uses: AlexHolderDeveloper/CommitsWithinTime@v1.0.0
+        uses: AlexHolderDeveloper/CommitsWithinTime@v1.1.5
         id: commitswithintime
         with:
           hours: 2
@@ -172,7 +172,7 @@ jobs:
         fetch-depth: 0
     
     - name: Check for commits within time 
-      uses: AlexHolderDeveloper/CommitsWithinTime@v1.0.0
+      uses: AlexHolderDeveloper/CommitsWithinTime@v1.1.5
       id: commitswithintime
       with:
         hours: 24
