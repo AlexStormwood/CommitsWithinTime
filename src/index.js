@@ -193,7 +193,7 @@ function gatherInfoOnCommitsWithinTime() {
     core.setOutput("has-new-commits-within-time", hasNewCommitsWithinTime);
     core.setOutput("number-of-commits-within-time", numberOfCommitsWithinTime)
 
-    if (exportToFile){
+    if (shouldWriteToFile){
         outputObj.totalCommits = totalCommits;
         outputObj.numberOfCommitsWithinTime = numberOfCommitsWithinTime;
         outputObj.hasNewCommitsWithinTime = hasNewCommitsWithinTime;
