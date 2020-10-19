@@ -7,6 +7,12 @@
 
 This is the data that you must set up in your own workflow file to use this action properly. These correspond nicely to the cron schedule values that you can set in a Github Action. 
 
+### seconds 
+
+* Default value: 0
+* Required: No
+* Purpose: Set how any seconds ago you'd like to check for valid commits.
+
 ### minutes
 
 - Default value: 0
@@ -181,18 +187,18 @@ jobs:
     - name: Find UPM package.json & increment its version number
       uses: AlexHolderDeveloper/UnityUPMSemver@v1.0.0 
       id: semver-update-upm
-      if: ${{ steps.commitswithintime.outputs.has-new-commits-within-time }}
+      if: steps.commitswithintime.outputs.has-new-commits-within-time
       with:
         semver-update-type: 'patch' 
         upm-package-directory: '/Packages/BigfootDSUnityCore/'
 
     - name: Get the new semver number
-      if: ${{ steps.commitswithintime.outputs.has-new-commits-within-time }}
+      if: steps.commitswithintime.outputs.has-new-commits-within-time
       run: echo "The new semver number for this Unity project is ${{ steps.semver-update-upm.outputs.semver-number }}"
 
     - name: Push changed files back to repo
       uses: stefanzweifel/git-auto-commit-action@v4
-      if: ${{ steps.commitswithintime.outputs.has-new-commits-within-time }}
+      if: steps.commitswithintime.outputs.has-new-commits-within-time
       with:
         commit_message: "Updated UPM semver via automated action."
         commit_options: '--no-verify --signoff'
