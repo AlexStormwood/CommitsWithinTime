@@ -16,6 +16,7 @@ jobs:
         id: commitswithintime
         with:
           hours: 1
+          exportToFile: true
       # Use the output from the `hello` step
       - name: Get the output from CommitsWithinTime
         run: |
