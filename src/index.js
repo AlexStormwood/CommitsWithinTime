@@ -196,6 +196,7 @@ function gatherInfoOnCommitsWithinTime() {
     console.log("The value of shouldWriteToFile is currently:");
     console.log(shouldWriteToFile);
     if (shouldWriteToFile || shouldWriteToFile == "true"){
+        console.log("Building outputObj and calling writeOutputsToFile now...");
         outputObj.totalCommits = totalCommits;
         outputObj.numberOfCommitsWithinTime = numberOfCommitsWithinTime;
         outputObj.hasNewCommitsWithinTime = hasNewCommitsWithinTime;
@@ -213,8 +214,8 @@ async function writeOutputsToFile(){
     fs.writeFileSync('../outputFromCommitsWithinTime.json', JSON.stringify(outputObj));
 
     // upload to artifact
-    const files = ['outputFromCommitsWithinTime.json'];
-    const rootDirectory = '../'
+    const files = ['/outputFromCommitsWithinTime.json'];
+    const rootDirectory = process.env.GITHUB_WORKSPACE;
     const options = {
         continueOnError: true
     }
