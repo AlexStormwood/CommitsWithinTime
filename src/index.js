@@ -214,7 +214,7 @@ async function writeOutputsToFile(){
 
     // upload to artifact
     const files = ['outputFromCommitsWithinTime.json'];
-    const rootDirectory = '.'
+    const rootDirectory = '../'
     const options = {
         continueOnError: true
     }
