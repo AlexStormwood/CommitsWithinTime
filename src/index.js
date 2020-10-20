@@ -211,11 +211,11 @@ async function writeOutputsToFile(){
     // write outputObj to JSON file as JSON
 
     // write to root of repository
-    fs.writeFileSync('../outputFromCommitsWithinTime.json', JSON.stringify(outputObj, null, 4));
-    console.log("Contents of file just written are: \n" + fs.readFileSync('../outputFromCommitsWithinTime.json'));
+    fs.writeFileSync(process.env.GITHUB_WORKSPACE + '/outputFromCommitsWithinTime.json', JSON.stringify(outputObj, null, 4));
+    console.log("Contents of file just written are: \n" + fs.readFileSync(process.env.GITHUB_WORKSPACE + '/outputFromCommitsWithinTime.json'));
     // upload to artifact
-    const files = ['/outputFromCommitsWithinTime.json'];
-    const rootDirectory = process.env.GITHUB_WORKSPACE;
+    const files = ['outputFromCommitsWithinTime.json'];
+    const rootDirectory = "../";
     const options = {
         continueOnError: true
     }
