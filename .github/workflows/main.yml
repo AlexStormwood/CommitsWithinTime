@@ -46,19 +46,27 @@ jobs:
           path: exampleDownloadOfArtifactData
 
       - name: Read total commits from artifact JSON
+        id: getTotalCommits
         uses: notiz-dev/github-action-json-property@release
         with:
           path: 'exampleDownloadOfArtifactData/CommitsWithinTime/outputFromCommitsWithinTime.json'
           prop_path: "totalCommits"
 
       - name: Read hasNewCommitsWithinTime from artifact JSON
+        id: getHasNewCommits;
         uses: notiz-dev/github-action-json-property@release
         with:
           path: 'exampleDownloadOfArtifactData/CommitsWithinTime/outputFromCommitsWithinTime.json'
           prop_path: "hasNewCommitsWithinTime"
 
       - name: Read new commits from artifact JSON
+        id: getNewCommitsCount
         uses: notiz-dev/github-action-json-property@release
         with:
           path: 'exampleDownloadOfArtifactData/CommitsWithinTime/outputFromCommitsWithinTime.json'
           prop_path: "numberOfCommitsWithinTime"
+      
+      - run: echo ${{steps.getTotalCommits.outputs.prop}} 
+      - run: echo ${{steps.getHasNewCommits.outputs.prop}} 
+      - run: echo ${{steps.getNewCommitsCount.outputs.prop}} 
+
