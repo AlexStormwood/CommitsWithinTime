@@ -225,11 +225,8 @@ async function writeOutputsToFile(){
         console.log("Hey! Looks like something failed when uploading results to the Actions artifact. \n Failed items are:\n " + uploadResponse.failedItems);
     }
 
-    console.log("\nFiles present in directory:"); 
-    let filesToRead = fs.readdirSync("./"); 
-    filesToRead.forEach(file => { 
-      console.log(file); 
-    }); 
+
+    listFilesInDirectory("./");
 
     // delete file that was made in root of repository to prevent any git changes being saved 
     fs.unlink("./outputFromCommitsWithinTime.json", (err) => {
@@ -237,7 +234,8 @@ async function writeOutputsToFile(){
           console.error(err)
           return
         }
-      
+        listFilesInDirectory("./");
+
         //file removed
     })
 }
@@ -246,3 +244,11 @@ gatherInfoOnCommitsWithinTime();
 
 
 
+
+function listFilesInDirectory(directoryToSearch){
+    console.log("\nFiles present in directory:"); 
+    let filesToRead = fs.readdirSync(directoryToSearch); 
+    filesToRead.forEach(file => { 
+      console.log(file); 
+    });
+}
