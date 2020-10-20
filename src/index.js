@@ -226,13 +226,13 @@ async function writeOutputsToFile(){
     }
 
     console.log("\nFiles present in directory:"); 
-    let filesToRead = fs.readdirSync("../"); 
+    let filesToRead = fs.readdirSync("./"); 
     filesToRead.forEach(file => { 
       console.log(file); 
     }); 
 
     // delete file that was made in root of repository to prevent any git changes being saved 
-    fs.unlink("../outputFromCommitsWithinTime.json", (err) => {
+    fs.unlink("./outputFromCommitsWithinTime.json", (err) => {
         if (err) {
           console.error(err)
           return
