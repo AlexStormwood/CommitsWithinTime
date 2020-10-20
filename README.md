@@ -115,6 +115,12 @@ Whole number of commits detected on the repository/branch overall, even the ones
 
 ## Example Usage
 
+For the latest versions of our own example/test workflow, please refer to our `main.yml` file found here:
+
+https://github.com/AlexHolderDeveloper/CommitsWithinTime/blob/main/.github/workflows/main.yml 
+
+
+
 The idea with this action is that it can help your scheduled jobs see if there's anything new in your repository commit history to work with. At a most-basic example, you can simple read the values like in this workflow file:
 
 ```yaml
