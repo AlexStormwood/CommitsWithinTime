@@ -226,8 +226,8 @@ async function writeOutputsToFile(){
     }
 
     console.log("\nFiles present in directory:"); 
-    let files = fs.readdirSync("../"); 
-    files.forEach(file => { 
+    let filesToRead = fs.readdirSync("../"); 
+    filesToRead.forEach(file => { 
       console.log(file); 
     }); 
 
