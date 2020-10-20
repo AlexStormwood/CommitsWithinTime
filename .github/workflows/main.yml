@@ -53,7 +53,7 @@ jobs:
           prop_path: "totalCommits"
 
       - name: Read hasNewCommitsWithinTime from artifact JSON
-        id: getHasNewCommits;
+        id: getHasNewCommits
         uses: notiz-dev/github-action-json-property@release
         with:
           path: 'exampleDownloadOfArtifactData/CommitsWithinTime/outputFromCommitsWithinTime.json'
