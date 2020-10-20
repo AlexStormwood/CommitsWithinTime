@@ -66,7 +66,9 @@ jobs:
           path: 'exampleDownloadOfArtifactData/CommitsWithinTime/outputFromCommitsWithinTime.json'
           prop_path: "numberOfCommitsWithinTime"
       
-      - run: echo ${{steps.getTotalCommits.outputs.prop}} 
-      - run: echo ${{steps.getHasNewCommits.outputs.prop}} 
-      - run: echo ${{steps.getNewCommitsCount.outputs.prop}} 
+      - name: Echo data read from artifact
+        run: |
+          echo ${{steps.getTotalCommits.outputs.prop}} 
+          echo ${{steps.getHasNewCommits.outputs.prop}} 
+          echo ${{steps.getNewCommitsCount.outputs.prop}} 
 
