@@ -6,7 +6,7 @@ on: [push]
 jobs:
   example_check_commits_job:
     runs-on: ubuntu-latest
-    name: Check for commits within the last 2 hours
+    name: Check for commits within the last 1 hours
     steps:
       # To use this repository's private action,
       # you must check out the repository
@@ -26,3 +26,39 @@ jobs:
           echo "The 'has-new-commits-within-time' value is ${{ steps.commitswithintime.outputs.has-new-commits-within-time }}"
           echo "The 'number-of-commits-within-time' value is ${{ steps.commitswithintime.outputs.number-of-commits-within-time }}"
           echo "The 'total-commits' value is ${{ steps.commitswithintime.outputs.total-commits }}"
+
+  example_check_data_from_other_job:
+    needs: example_check_commits_job
+    runs-on: ubuntu-latest
+    name: Check for data from artifact created by other job
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout with maximum fetch depth
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: outputCommitsWithinTime
+          path: exampleDownloadOfArtifactData
+
+      - name: Read total commits from artifact JSON
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: 'exampleDownloadOfArtifactData/outputFromCommitsWithinTime.json'
+          prop_path: "totalCommits"
+
+      - name: Read hasNewCommitsWithinTime from artifact JSON
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: 'exampleDownloadOfArtifactData/outputFromCommitsWithinTime.json'
+          prop_path: "hasNewCommitsWithinTime"
+
+      - name: Read new commits from artifact JSON
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: 'exampleDownloadOfArtifactData/outputFromCommitsWithinTime.json'
+          prop_path: "numberOfCommitsWithinTime"
