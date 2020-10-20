@@ -2,7 +2,6 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const artifact = require('@actions/artifact');
 const artifactClient = artifact.create()
-const artifactName = 'outputCommitsWithinTime';
 const fs = require('fs');
 const resolve = require('path').resolve;
 
@@ -27,6 +26,7 @@ var emailAddressesToFocus = JSON.parse(core.getInput("emailAddressesToFocus")).a
 var includeGithubActor = core.getInput("includeGithubActor") || true;
 var includeActionsUser = core.getInput("includeActionsUser") || false;
 
+const artifactName = core.getInput("artifactName") || 'outputCommitsWithinTime';
 var shouldWriteToFile = core.getInput("exportToFile") || false;
 var outputObj = {
     hasNewCommitsWithinTime: false,
