@@ -20,7 +20,7 @@ jobs:
         with:
           hours: 1
           exportToFile: true
-      # Use the output from the `hello` step
+      # Use the output from the `hello` steps
       - name: Get the output from CommitsWithinTime
         run: |
           echo "The 'has-new-commits-within-time' value is ${{ steps.commitswithintime.outputs.has-new-commits-within-time }}"
