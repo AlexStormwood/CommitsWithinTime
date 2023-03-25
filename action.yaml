@@ -64,5 +64,5 @@ outputs:
   total-commits:
     description: "Whole number of commits detected on the repository/branch overall, even the ones not within the specified timeframe." 
 runs:
-  using: "node12" 
+  using: "node16" 
   main: "src/index.js" 
