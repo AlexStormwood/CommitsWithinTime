@@ -136,7 +136,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run CommitsWithinTime script
-        uses: AlexHolderDeveloper/CommitsWithinTime@v1.1.11
+        uses: AlexStormwood/CommitsWithinTime@v1.1.12
         id: commitswithintime
         with:
           hours: 2
@@ -178,7 +178,7 @@ jobs:
         fetch-depth: 0
     
     - name: Check for commits within time 
-      uses: AlexHolderDeveloper/CommitsWithinTime@v1.1.11
+      uses: AlexStormwood/CommitsWithinTime@v1.1.12
       id: commitswithintime
       with:
         hours: 24
@@ -191,7 +191,7 @@ jobs:
 
 
     - name: Find UPM package.json & increment its version number
-      uses: AlexHolderDeveloper/UnityUPMSemver@v1.0.0 
+      uses: AlexStormwood/UnityUPMSemver@v1.0.0 
       id: semver-update-upm
       if: steps.commitswithintime.outputs.has-new-commits-within-time
       with:
@@ -203,7 +203,7 @@ jobs:
       run: echo "The new semver number for this Unity project is ${{ steps.semver-update-upm.outputs.semver-number }}"
 
     - name: Push changed files back to repo
-      uses: stefanzweifel/git-auto-commit-action@v4
+      uses: stefanzweifel/git-auto-commit-action@v5
       if: steps.commitswithintime.outputs.has-new-commits-within-time
       with:
         commit_message: "Updated UPM semver via automated action."
