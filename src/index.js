@@ -221,9 +221,10 @@ async function writeOutputsToFile(){
     }
     
     const uploadResponse = await artifactClient.uploadArtifact(artifactName, files, rootDirectory, options)
-    if (uploadResponse.failedItems.length > 0){
-        console.log("Hey! Looks like something failed when uploading results to the Actions artifact. \n Failed items are:\n " + uploadResponse.failedItems);
-    }
+    // TODO: Reimplement this. Seems like it was removed from v2 of @actions/artifact.
+    // if (uploadResponse.failedItems.length > 0){
+    //     console.log("Hey! Looks like something failed when uploading results to the Actions artifact. \n Failed items are:\n " + uploadResponse.failedItems);
+    // }
 
 
     listFilesInDirectory("./");

@@ -11,7 +11,7 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout with maximum fetch depth
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Run CommitsWithinTime script
@@ -35,7 +35,7 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout with maximum fetch depth
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
