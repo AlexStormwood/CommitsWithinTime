@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const artifact = require('@actions/artifact');
-const artifactClient = artifact.create()
+const {DefaultArtifactClient} = require('@actions/artifact')
+const artifactClient = new DefaultArtifactClient();
 const fs = require('fs');
 const resolve = require('path').resolve;
 
